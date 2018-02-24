@@ -1,5 +1,5 @@
-import React from "react";
-import ToDo from "./ToDo";
+import React from 'react';
+import ToDo from '../ToDo/index';
 
 const ToDoList = props => {
   return (

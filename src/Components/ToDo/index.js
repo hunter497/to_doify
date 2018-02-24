@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class ToDo extends Component {
   displayDate = () => {
     var date = null;
     this.props.item.completed
-      ? (date = "Completed on: " + this.props.item.dateFinished)
+      ? (date = 'Completed on: ' + this.props.item.dateFinished)
       : (date = this.props.item.dateCreated);
     return date;
   };

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Hamburger from "./Hamburger";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import Hamburger from '../Hamburger';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Header extends Component {
       <nav className="navbar is-light" aria-label="dropdown navigation">
         <div className="container">
           <div className="navbar-brand">
-            <Link className={"navbar-item"} to={"/"}>
+            <Link className={'navbar-item'} to={'/'}>
               ToDo-ify
             </Link>
             <Hamburger
@@ -35,22 +35,22 @@ class Header extends Component {
           <div
             id="navMenu"
             className={
-              "navbar-menu " + (this.state.isMenuOpen ? "is-active" : "")
+              'navbar-menu ' + (this.state.isMenuOpen ? 'is-active' : '')
             }
           >
             <div className="navbar-start">
-              <Link className={"navbar-item"} to={"/"}>
+              <Link className={'navbar-item'} to={'/'}>
                 Home
               </Link>
-              <Link className={"navbar-item"} to={"/todo"}>
+              <Link className={'navbar-item'} to={'/todo'}>
                 To Do
               </Link>
               <div className="navbar-item has-dropdown is-hoverable">
-                <Link className={"navbar-item"} to={"/docs"}>
+                <Link className={'navbar-item'} to={'/docs'}>
                   Docs
                 </Link>
                 <div className="navbar-dropdown">
-                  <Link className={"navbar-item"} to={"/overview"}>
+                  <Link className={'navbar-item'} to={'/overview'}>
                     Overview
                   </Link>
                 </div>

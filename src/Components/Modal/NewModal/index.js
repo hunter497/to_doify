@@ -1,17 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { getCurrentDate } from '../../../utils/date.js';
+import { getNewId } from '../../../utils/guid.js';
 
-class EditModal extends Component {
+class NewModal extends Component {
   constructor(props) {
     super(props);
 
-    var id = uuidv1();
+    var id = getNewId();
 
     this.state = {
       id: id,
-      title: "",
-      topic: "",
-      desc: "",
-      dateCreated: this.getCurrentDate(),
+      title: '',
+      topic: '',
+      desc: '',
+      category: '',
+      dateCreated: getCurrentDate(),
       completed: false,
       dateFinished: null
     };
@@ -23,27 +26,15 @@ class EditModal extends Component {
     return newItem;
   };
 
-  getCurrentDate = () => {
-    var currentDate = new Date();
-    console.log(currentDate);
-    return (
-      currentDate.getMonth() +
-      1 +
-      "/" +
-      currentDate.getDate() +
-      "/" +
-      currentDate.getFullYear()
-    );
-  };
-
   clearFields = () => {
     this.props.toggleModal();
     this.setState({
-      id: this.generateNewId(),
-      title: "",
-      topic: "",
-      desc: "",
-      dateCreated: this.getCurrentDate()
+      id: getNewId(),
+      title: '',
+      topic: '',
+      desc: '',
+      category: '',
+      dateCreated: getCurrentDate()
     });
   };
 
@@ -56,12 +47,17 @@ class EditModal extends Component {
   };
 
   handleDescChange = event => {
+    console.log(this.state);
     this.setState({ desc: event.target.value });
+  };
+
+  handleCategoryChange = event => {
+    this.setState({ category: event.target.value });
   };
 
   render() {
     return (
-      <div className={"modal " + (this.props.modalOpen ? "is-active" : "")}>
+      <div className={'modal ' + (this.props.modalOpen ? 'is-active' : '')}>
         <div className="modal-background" onClick={this.clearFields} />
         <div className="modal-card">
           <header className="modal-card-head">
@@ -96,6 +92,24 @@ class EditModal extends Component {
                     type="text"
                     placeholder="Topic"
                   />
+                </div>
+              </div>
+              <div className="field">
+                <label className="label">Category</label>
+                <div className="control">
+                  <div className="select">
+                    <select
+                      value={this.state.category}
+                      onChange={this.handleCategoryChange}
+                    >
+                      <option>Category</option>
+                      <option>Urgent</option>
+                      <option>Uncategorized</option>
+                      <option>Actionable</option>
+                      <option>Actions</option>
+                      <option>Big Picture</option>
+                    </select>
+                  </div>
                 </div>
               </div>
               <div className="field">

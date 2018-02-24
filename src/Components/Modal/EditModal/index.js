@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import uuidv1 from "uuid/v1";
+import React, { Component } from 'react';
+import { getCurrentDate } from '../../../utils/date.js';
 
-class NewModal extends Component {
+class EditModal extends Component {
   constructor(props) {
     super(props);
 
@@ -9,20 +9,14 @@ class NewModal extends Component {
 
     this.state = {
       id: id,
-      title: "",
-      topic: "",
-      desc: "",
-      category: "",
-      dateCreated: this.getCurrentDate(),
+      title: '',
+      topic: '',
+      desc: '',
+      dateCreated: getCurrentDate(),
       completed: false,
       dateFinished: null
     };
   }
-
-  generateNewId = () => {
-    var newId = uuidv1();
-    return newId;
-  };
 
   getNewItem = () => {
     var newItem = this.state;
@@ -30,28 +24,14 @@ class NewModal extends Component {
     return newItem;
   };
 
-  getCurrentDate = () => {
-    var currentDate = new Date();
-    console.log(currentDate);
-    return (
-      currentDate.getMonth() +
-      1 +
-      "/" +
-      currentDate.getDate() +
-      "/" +
-      currentDate.getFullYear()
-    );
-  };
-
   clearFields = () => {
     this.props.toggleModal();
     this.setState({
       id: this.generateNewId(),
-      title: "",
-      topic: "",
-      desc: "",
-      category: "",
-      dateCreated: this.getCurrentDate()
+      title: '',
+      topic: '',
+      desc: '',
+      dateCreated: getCurrentDate()
     });
   };
 
@@ -64,17 +44,12 @@ class NewModal extends Component {
   };
 
   handleDescChange = event => {
-    console.log(this.state);
     this.setState({ desc: event.target.value });
-  };
-
-  handleCategoryChange = event => {
-    this.setState({ category: event.target.value });
   };
 
   render() {
     return (
-      <div className={"modal " + (this.props.modalOpen ? "is-active" : "")}>
+      <div className={'modal ' + (this.props.modalOpen ? 'is-active' : '')}>
         <div className="modal-background" onClick={this.clearFields} />
         <div className="modal-card">
           <header className="modal-card-head">
@@ -109,24 +84,6 @@ class NewModal extends Component {
                     type="text"
                     placeholder="Topic"
                   />
-                </div>
-              </div>
-              <div className="field">
-                <label className="label">Category</label>
-                <div className="control">
-                  <div className="select">
-                    <select
-                      value={this.state.category}
-                      onChange={this.handleCategoryChange}
-                    >
-                      <option>Category</option>
-                      <option>Urgent</option>
-                      <option>Uncategorized</option>
-                      <option>Actionable</option>
-                      <option>Actions</option>
-                      <option>Big Picture</option>
-                    </select>
-                  </div>
                 </div>
               </div>
               <div className="field">
