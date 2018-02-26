@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Hero from "../Components/Hero/ToDoHero/index";
 import ToDoList from "../Components/List/index";
+import ToDoSection from "../Components/Section/index";
+import { getCurrentDate } from "../utils/date.js";
 
 class ToDoApp extends Component {
   state = {
@@ -114,7 +116,7 @@ class ToDoApp extends Component {
     var items = this.state.toDoList.slice();
     var index = this.getIndex(id, this.state.toDoList, "id");
     items[index].completed = true;
-    items[index].dateFinished = this.getCurrentDate();
+    items[index].dateFinished = getCurrentDate();
     this.setState({ toDoList: items });
   };
 
@@ -144,122 +146,46 @@ class ToDoApp extends Component {
     return (
       <React.Fragment>
         <Hero addNewItem={this.addNewItem} />
-        <section className="hero is-light">
-          <div className="hero-body">
-            <div className="container">
-              <div className="columns is-vcentered">
-                <div className="column is-two-thirds is-left">
-                  <p className="title">Urgent!</p>
-                  <p className="subtitle">Do these IMMEDIATELY!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="section">
-          <div className="container">
-            <ToDoList
-              toDoList={this.getCategorizedItems("Urgent")}
-              delete={this.delete}
-              edit={this.editItem}
-              complete={this.completeItem}
-            />
-          </div>
-        </div>
-        <section className="hero is-light">
-          <div className="hero-body">
-            <div className="container">
-              <div className="columns is-vcentered">
-                <div className="column is-two-thirds is-left">
-                  <p className="title">Uncategorized Items</p>
-                  <p className="subtitle">Categorize your items today!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="section">
-          <div className="container">
-            <ToDoList
-              toDoList={this.getCategorizedItems("Uncategorized")}
-              delete={this.delete}
-              edit={this.editItem}
-              complete={this.completeItem}
-            />
-          </div>
-        </div>
-        <section className="hero is-light">
-          <div className="hero-body">
-            <div className="container">
-              <div className="columns is-vcentered">
-                <div className="column is-two-thirds is-left">
-                  <p className="title">Actionable</p>
-                  <p className="subtitle">
-                    Create action items from these immediately!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="section">
-          <div className="container">
-            <ToDoList
-              toDoList={this.getCategorizedItems("Actionable")}
-              delete={this.delete}
-              edit={this.editItem}
-              complete={this.completeItem}
-            />
-          </div>
-        </div>
-        <section className="hero is-light">
-          <div className="hero-body">
-            <div className="container">
-              <div className="columns is-vcentered">
-                <div className="column is-two-thirds is-left">
-                  <p className="title">Actions</p>
-                  <p className="subtitle">
-                    Good luck completing your actions today!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="section">
-          <div className="container">
-            <ToDoList
-              toDoList={this.getCategorizedItems("Actions")}
-              delete={this.delete}
-              edit={this.editItem}
-              complete={this.completeItem}
-            />
-          </div>
-        </div>
-        <section className="hero is-light">
-          <div className="hero-body">
-            <div className="container">
-              <div className="columns is-vcentered">
-                <div className="column is-two-thirds is-left">
-                  <p className="title">Big Picture</p>
-                  <p className="subtitle">
-                    Future goals for yourself are just as important to track!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="section">
-          <div className="container">
-            <ToDoList
-              toDoList={this.getCategorizedItems("Big Picture")}
-              delete={this.delete}
-              edit={this.editItem}
-              complete={this.completeItem}
-            />
-          </div>
-        </div>
+        <ToDoSection
+          toDoList={this.getCategorizedItems("Urgent")}
+          title={"Urgent"}
+          subtitle={"Do these immediately!"}
+          delete={this.delete}
+          edit={this.editItem}
+          complete={this.completeItem}
+        />
+        <ToDoSection
+          toDoList={this.getCategorizedItems("Uncategorized")}
+          title={"Uncategorized"}
+          subtitle={"Categorize your items today!"}
+          delete={this.delete}
+          edit={this.editItem}
+          complete={this.completeItem}
+        />
+        <ToDoSection
+          toDoList={this.getCategorizedItems("Actionable")}
+          title={"Actionable"}
+          subtitle={"Create action items from these immediately!"}
+          delete={this.delete}
+          edit={this.editItem}
+          complete={this.completeItem}
+        />
+        <ToDoSection
+          toDoList={this.getCategorizedItems("Actions")}
+          title={"Actions"}
+          subtitle={"Good luck completing your actions today!"}
+          delete={this.delete}
+          edit={this.editItem}
+          complete={this.completeItem}
+        />
+        <ToDoSection
+          toDoList={this.getCategorizedItems("Big Picture")}
+          title={"Big Picture"}
+          subtitle={"Future goals for yourself are just as important to track!"}
+          delete={this.delete}
+          edit={this.editItem}
+          complete={this.completeItem}
+        />
         <section className="hero is-info">
           <div className="hero-body">
             <div className="container">
