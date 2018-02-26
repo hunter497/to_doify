@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import './vendor/css/bulma.css';
-import Navigation from './Components/Navigation/index';
-import ToDoApp from './Pages/ToDoApp';
-import Home from './Pages/Home';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import ReactDOM from "react-dom";
+import "./vendor/css/bulma.css";
+import Navigation from "./Components/Navigation/index";
+import ToDoApp from "./Pages/ToDoApp";
+import Home from "./Pages/Home";
+import registerServiceWorker from "./registerServiceWorker";
 
 const element = (
   <Router>
@@ -17,5 +17,5 @@ const element = (
   </Router>
 );
 
-ReactDOM.render(element, document.getElementById('root'));
+ReactDOM.render(element, document.getElementById("root"));
 registerServiceWorker();
