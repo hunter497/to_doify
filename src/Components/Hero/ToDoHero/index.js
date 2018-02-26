@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import NewModal from '../Components/Modal/NewModal/index';
+import React, { Component } from "react";
+import NewModal from "../../Modal/NewModal/index";
 
 class Hero extends Component {
   constructor(props) {
@@ -9,51 +9,51 @@ class Hero extends Component {
       isModalOpen: false,
       motivatingQuotes: [
         {
-          quote: 'Nothing is impossible, the word itself says “I’m possible”!',
-          author: 'Audrey Hepburn'
+          quote: "Nothing is impossible, the word itself says “I’m possible”!",
+          author: "Audrey Hepburn"
         },
         {
           quote:
-            'Whether you think you can or you think you can’t, you’re right.',
-          author: 'Henry Ford'
+            "Whether you think you can or you think you can’t, you’re right.",
+          author: "Henry Ford"
         },
         {
           quote:
-            'If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.',
-          author: 'Oprah Winfrey'
+            "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
+          author: "Oprah Winfrey"
         },
         {
           quote:
-            'I can’t change the direction of the wind, but I can adjust my sails to always reach my destination.',
-          author: 'Jimmy Dean'
+            "I can’t change the direction of the wind, but I can adjust my sails to always reach my destination.",
+          author: "Jimmy Dean"
         },
         {
-          quote: 'Believe you can and you’re halfway there.',
-          author: 'Theodore Roosevelt'
-        },
-        {
-          quote:
-            'Too many of us are not living our dreams because we are living our fears.',
-          author: 'Les Brown'
-        },
-        {
-          quote: 'Do or do not. There is no try.',
-          author: 'Yoda'
+          quote: "Believe you can and you’re halfway there.",
+          author: "Theodore Roosevelt"
         },
         {
           quote:
-            'Whatever the mind of man can conceive and believe, it can achieve.',
-          author: 'Napoleon Hill'
+            "Too many of us are not living our dreams because we are living our fears.",
+          author: "Les Brown"
+        },
+        {
+          quote: "Do or do not. There is no try.",
+          author: "Yoda"
         },
         {
           quote:
-            'Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails. Explore, Dream, Discover.',
-          author: 'Mark Twain'
+            "Whatever the mind of man can conceive and believe, it can achieve.",
+          author: "Napoleon Hill"
         },
         {
           quote:
-            'I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed.',
-          author: 'Michael Jordan'
+            "Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails. Explore, Dream, Discover.",
+          author: "Mark Twain"
+        },
+        {
+          quote:
+            "I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed.",
+          author: "Michael Jordan"
         }
       ]
     };

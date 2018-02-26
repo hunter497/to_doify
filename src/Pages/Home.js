@@ -1,5 +1,5 @@
 import React from "react";
-import HomeHero from "../Components/HomeHero";
+import HomeHero from "../Components/Hero/HomeHero/index";
 
 const Home = props => {
   return (

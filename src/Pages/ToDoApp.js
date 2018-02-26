@@ -1,82 +1,82 @@
-import React, { Component } from 'react';
-import Hero from '../Components/Hero';
-import ToDoList from '../Components/List/index';
+import React, { Component } from "react";
+import Hero from "../Components/Hero/ToDoHero/index";
+import ToDoList from "../Components/List/index";
 
 class ToDoApp extends Component {
   state = {
     toDoList: [
       {
         id: 1,
-        title: 'Add inspirational quotes',
-        topic: 'Website',
-        category: 'Urgent',
-        desc: 'Add an inspirational quote generator for the to do list page',
-        dateCreated: '1/5/2018',
+        title: "Add inspirational quotes",
+        topic: "Website",
+        category: "Urgent",
+        desc: "Add an inspirational quote generator for the to do list page",
+        dateCreated: "1/5/2018",
         completed: true,
-        dateFinished: '2/11/2018'
+        dateFinished: "2/11/2018"
       },
       {
         id: 2,
-        title: 'Move completed items to a separate section',
-        topic: 'Website',
-        category: 'Urgent',
+        title: "Move completed items to a separate section",
+        topic: "Website",
+        category: "Urgent",
         desc:
-          'Add a section under the to do items to list out the completed items',
-        dateCreated: '1/7/2018',
+          "Add a section under the to do items to list out the completed items",
+        dateCreated: "1/7/2018",
         completed: true,
-        dateFinished: '1/15/2018'
+        dateFinished: "1/15/2018"
       },
       {
         id: 3,
-        title: 'Handle item sorting',
-        topic: 'Website',
-        category: 'Urgent',
+        title: "Handle item sorting",
+        topic: "Website",
+        category: "Urgent",
         desc:
-          'Sort completed list by date completed, sort to do list by date added',
-        dateCreated: '1/5/2018',
+          "Sort completed list by date completed, sort to do list by date added",
+        dateCreated: "1/5/2018",
         completed: false,
-        dateFinished: '1/20/2018'
+        dateFinished: "1/20/2018"
       },
       {
         id: 4,
-        title: 'ID Generation',
-        topic: 'Website',
-        category: 'Urgent',
-        desc: 'Add in ID generation for new elements to manage duplication',
-        dateCreated: '1/5/2018',
+        title: "ID Generation",
+        topic: "Website",
+        category: "Urgent",
+        desc: "Add in ID generation for new elements to manage duplication",
+        dateCreated: "1/5/2018",
         completed: true,
-        dateFinished: '1/20/2018'
+        dateFinished: "1/20/2018"
       },
       {
         id: 5,
-        title: 'Edit functionality',
-        topic: 'Website',
-        category: 'Urgent',
-        desc: 'Add in edit funcitonality to the to do items',
-        dateCreated: '1/5/2018',
+        title: "Edit functionality",
+        topic: "Website",
+        category: "Urgent",
+        desc: "Add in edit funcitonality to the to do items",
+        dateCreated: "1/5/2018",
         completed: false,
         dateFinished: null
       },
       {
         id: 6,
-        title: 'AWS Connection',
-        topic: 'Website',
-        category: 'Urgent',
-        desc: 'Add in a backend using serverless tech through AWS',
-        dateCreated: '1/5/2018',
+        title: "AWS Connection",
+        topic: "Website",
+        category: "Urgent",
+        desc: "Add in a backend using serverless tech through AWS",
+        dateCreated: "1/5/2018",
         completed: false,
-        dateFinished: '2/2/2018'
+        dateFinished: "2/2/2018"
       },
       {
         id: 7,
-        title: 'Completion Date',
-        topic: 'Website',
-        category: 'Urgent',
+        title: "Completion Date",
+        topic: "Website",
+        category: "Urgent",
         desc:
-          'Handle updating the item with the completion date when the complete action is taken',
-        dateCreated: '2/11/2018',
+          "Handle updating the item with the completion date when the complete action is taken",
+        dateCreated: "2/11/2018",
         completed: true,
-        dateFinished: '2/12/2018'
+        dateFinished: "2/12/2018"
       }
     ]
   };
@@ -98,21 +98,21 @@ class ToDoApp extends Component {
 
   delete = id => {
     var items = this.state.toDoList.slice();
-    var index = this.getIndex(id, this.state.toDoList, 'id');
+    var index = this.getIndex(id, this.state.toDoList, "id");
     items.splice(index, 1);
     this.setState({ toDoList: items });
   };
 
   editItem = id => {
     var items = this.state.toDoList.slice();
-    var index = this.getIndex(id, this.state.toDoList, 'id');
-    items[index].title = 'Edited Item';
+    var index = this.getIndex(id, this.state.toDoList, "id");
+    items[index].title = "Edited Item";
     this.setState({ toDoList: items });
   };
 
   completeItem = id => {
     var items = this.state.toDoList.slice();
-    var index = this.getIndex(id, this.state.toDoList, 'id');
+    var index = this.getIndex(id, this.state.toDoList, "id");
     items[index].completed = true;
     items[index].dateFinished = this.getCurrentDate();
     this.setState({ toDoList: items });
@@ -140,19 +140,6 @@ class ToDoApp extends Component {
     return completeItems;
   };
 
-  getCurrentDate = () => {
-    var currentDate = new Date();
-    console.log(currentDate);
-    return (
-      currentDate.getMonth() +
-      1 +
-      '/' +
-      currentDate.getDate() +
-      '/' +
-      currentDate.getFullYear()
-    );
-  };
-
   render() {
     return (
       <React.Fragment>
@@ -172,7 +159,7 @@ class ToDoApp extends Component {
         <div className="section">
           <div className="container">
             <ToDoList
-              toDoList={this.getCategorizedItems('Urgent')}
+              toDoList={this.getCategorizedItems("Urgent")}
               delete={this.delete}
               edit={this.editItem}
               complete={this.completeItem}
@@ -194,7 +181,7 @@ class ToDoApp extends Component {
         <div className="section">
           <div className="container">
             <ToDoList
-              toDoList={this.getCategorizedItems('Uncategorized')}
+              toDoList={this.getCategorizedItems("Uncategorized")}
               delete={this.delete}
               edit={this.editItem}
               complete={this.completeItem}
@@ -218,7 +205,7 @@ class ToDoApp extends Component {
         <div className="section">
           <div className="container">
             <ToDoList
-              toDoList={this.getCategorizedItems('Actionable')}
+              toDoList={this.getCategorizedItems("Actionable")}
               delete={this.delete}
               edit={this.editItem}
               complete={this.completeItem}
@@ -242,7 +229,7 @@ class ToDoApp extends Component {
         <div className="section">
           <div className="container">
             <ToDoList
-              toDoList={this.getCategorizedItems('Actions')}
+              toDoList={this.getCategorizedItems("Actions")}
               delete={this.delete}
               edit={this.editItem}
               complete={this.completeItem}
@@ -266,7 +253,7 @@ class ToDoApp extends Component {
         <div className="section">
           <div className="container">
             <ToDoList
-              toDoList={this.getCategorizedItems('Big Picture')}
+              toDoList={this.getCategorizedItems("Big Picture")}
               delete={this.delete}
               edit={this.editItem}
               complete={this.completeItem}
