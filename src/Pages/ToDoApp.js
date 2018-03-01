@@ -98,6 +98,16 @@ class ToDoApp extends Component {
     this.setState({ toDoList: items });
   };
 
+  // TODO: This is really sloppy, fix this
+
+  editItem = item => {
+    var items = this.state.toDoList.slice();
+    var index = this.getIndex(item.id, this.state.toDoList, "id");
+    items.splice(index, 1);
+    items.push(item);
+    this.setState({ toDoList: items });
+  };
+
   delete = id => {
     var items = this.state.toDoList.slice();
     var index = this.getIndex(id, this.state.toDoList, "id");

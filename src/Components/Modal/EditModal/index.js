@@ -1,37 +1,28 @@
-import React, { Component } from 'react';
-import { getCurrentDate } from '../../../utils/date.js';
+import React, { Component } from "react";
 
 class EditModal extends Component {
   constructor(props) {
     super(props);
 
-    var id = uuidv1();
-
     this.state = {
-      id: id,
-      title: '',
-      topic: '',
-      desc: '',
-      dateCreated: getCurrentDate(),
+      id: "",
+      title: "",
+      topic: "",
+      desc: "",
+      dateCreated: "",
       completed: false,
       dateFinished: null
     };
   }
 
-  getNewItem = () => {
-    var newItem = this.state;
-    this.clearFields();
-    return newItem;
-  };
-
   clearFields = () => {
     this.props.toggleModal();
     this.setState({
-      id: this.generateNewId(),
-      title: '',
-      topic: '',
-      desc: '',
-      dateCreated: getCurrentDate()
+      id: "",
+      title: "",
+      topic: "",
+      desc: "",
+      dateCreated: ""
     });
   };
 
@@ -49,11 +40,11 @@ class EditModal extends Component {
 
   render() {
     return (
-      <div className={'modal ' + (this.props.modalOpen ? 'is-active' : '')}>
+      <div className={"modal " + (this.props.modalOpen ? "is-active" : "")}>
         <div className="modal-background" onClick={this.clearFields} />
         <div className="modal-card">
           <header className="modal-card-head">
-            <p className="modal-card-title">New To Do Item</p>
+            <p className="modal-card-title">Edit To Do Item</p>
             <button
               className="delete"
               aria-label="close"
@@ -102,7 +93,7 @@ class EditModal extends Component {
           <footer className="modal-card-foot">
             <button
               className="button is-success"
-              onClick={() => this.props.addNewItem(this.getNewItem())}
+              onClick={() => this.props.editItem(this.state)}
             >
               Save changes
             </button>
@@ -116,4 +107,4 @@ class EditModal extends Component {
   }
 }
 
-export default NewModal;
+export default EditModal;
