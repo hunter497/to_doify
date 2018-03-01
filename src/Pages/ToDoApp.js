@@ -115,12 +115,12 @@ class ToDoApp extends Component {
     this.setState({ toDoList: items });
   };
 
-  editItem = id => {
-    var items = this.state.toDoList.slice();
-    var index = this.getIndex(id, this.state.toDoList, "id");
-    items[index].title = "Edited Item";
-    this.setState({ toDoList: items });
-  };
+  // editItem = id => {
+  //   var items = this.state.toDoList.slice();
+  //   var index = this.getIndex(id, this.state.toDoList, "id");
+  //   items[index].title = "Edited Item";
+  //   this.setState({ toDoList: items });
+  // };
 
   completeItem = id => {
     var items = this.state.toDoList.slice();

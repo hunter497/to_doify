@@ -5,25 +5,18 @@ class EditModal extends Component {
     super(props);
 
     this.state = {
-      id: "",
-      title: "",
-      topic: "",
-      desc: "",
-      dateCreated: "",
-      completed: false,
-      dateFinished: null
+      id: props.item.id,
+      title: props.item.title,
+      topic: props.item.topic,
+      desc: props.item.desc,
+      dateCreated: props.item.dateCreated,
+      completed: props.item.completed,
+      dateFinished: props.item.dateFinished
     };
   }
 
-  clearFields = () => {
+  closeModal = () => {
     this.props.toggleModal();
-    this.setState({
-      id: "",
-      title: "",
-      topic: "",
-      desc: "",
-      dateCreated: ""
-    });
   };
 
   handleTitleChange = event => {
@@ -41,14 +34,14 @@ class EditModal extends Component {
   render() {
     return (
       <div className={"modal " + (this.props.modalOpen ? "is-active" : "")}>
-        <div className="modal-background" onClick={this.clearFields} />
+        <div className="modal-background" onClick={this.closeModal} />
         <div className="modal-card">
           <header className="modal-card-head">
             <p className="modal-card-title">Edit To Do Item</p>
             <button
               className="delete"
               aria-label="close"
-              onClick={this.clearFields}
+              onClick={this.closeModal}
             />
           </header>
           <section className="modal-card-body">
@@ -97,7 +90,7 @@ class EditModal extends Component {
             >
               Save changes
             </button>
-            <button className="button" onClick={this.clearFields}>
+            <button className="button" onClick={this.closeModal}>
               Cancel
             </button>
           </footer>

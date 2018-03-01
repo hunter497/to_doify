@@ -12,7 +12,7 @@ class ToDo extends Component {
 
   toggleModal = () => {
     this.setState({
-      isModalOpen: !this.isModalOpen
+      isModalOpen: !this.state.isModalOpen
     });
   };
 
@@ -57,6 +57,8 @@ class ToDo extends Component {
         <EditModal
           modalOpen={this.state.isModalOpen}
           toggleModal={this.toggleModal}
+          item={this.props.item}
+          editItem={this.props.edit}
         />
       </React.Fragment>
     );

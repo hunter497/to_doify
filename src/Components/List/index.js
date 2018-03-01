@@ -1,5 +1,5 @@
-import React from 'react';
-import ToDo from '../ToDo/index';
+import React from "react";
+import ToDo from "../ToDo/index";
 
 const ToDoList = props => {
   return (
@@ -13,7 +13,7 @@ const ToDoList = props => {
               props.delete(toDo.id);
             }}
             edit={() => {
-              props.edit(toDo.id);
+              props.edit(toDo);
             }}
             complete={() => {
               props.complete(toDo.id);
